@@ -1,23 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  name: argocd-server-ingress
+  namespace: env-test # Ensure this matches your Argo CD namespace
   annotations:
-    kubectl.kubernetes.io/last-applied-configuration: >
-      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"kubernetes.io/ingress.class":"nginx"},"name":"apache-ingress","namespace":"promptify"},"spec":{"rules":[{"host":"apache.df.com","http":{"paths":[{"backend":{"service":{"name":"apache-service","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}]}}
-    kubernetes.io/ingress.class: nginx
-  labels:
-    app.kubernetes.io/instance: chalitha-gitops
-  name: apache-ingress
-  namespace: env-test
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: apache.df.com
+    - host: argocd.example.com # Replace with your domain
       http:
         paths:
-          - backend:
-              service:
-                name: apache-service
-                port:
-                  number: 80
-            path: /
+          - path: /
             pathType: Prefix
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  number: 80 # Change to 443 if using HTTPS

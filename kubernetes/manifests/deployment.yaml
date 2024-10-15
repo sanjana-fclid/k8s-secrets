@@ -18,7 +18,7 @@ spec:
       imagePullSecrets:
         - name: dockerhub-secret
       containers:
-        - name: env-test
-          image: sanjanafclid/envtest:latest
+        - name: wordpress
+          image: wordpress
           ports:
             - containerPort: 8000

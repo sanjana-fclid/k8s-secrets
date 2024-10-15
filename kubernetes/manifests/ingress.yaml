@@ -1,19 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argocd-server-ingress
-  namespace: asd # Ensure this matches your Argo CD namespace
+  name: wordpress-ingress
+  namespace: asd # Replace with your WordPress namespace
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: argocd.example.com # Replace with your domain
+    - host: wordpress.local # Use a local hostname
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: argocd-server
+                name: <your-wordpress-service-name> # Replace with your WordPress service name
                 port:
                   number: 80 # Change to 443 if using HTTPS

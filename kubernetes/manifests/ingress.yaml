@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: wordpress.local # Use a local hostname
+    - host: 127.0.0.1 # Use a local hostname
       http:
         paths:
           - path: /

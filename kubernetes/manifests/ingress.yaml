@@ -16,7 +16,7 @@ spec:
         paths:
           - backend:
               service:
-                name: apache-service
+                name: env-test
                 port:
                   number: 80
             path: /

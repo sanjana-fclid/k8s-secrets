@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: env-test
-  namespace: promptify
+  namespace: promptify2
   labels:
     app: env-test
 spec:

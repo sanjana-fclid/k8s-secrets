@@ -2,10 +2,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: apache-ingress
-  namespace: asd
+  namespace: promptify
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
+  ingressClassName: nginx
   rules:
     - host: apache.local # Replace this with a custom local hostname
       http:

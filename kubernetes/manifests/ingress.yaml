@@ -14,6 +14,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: <your-wordpress-service-name> # Replace with your WordPress service name
+                name: env-test # Replace with your WordPress service name
                 port:
                   number: 80 # Change to 443 if using HTTPS

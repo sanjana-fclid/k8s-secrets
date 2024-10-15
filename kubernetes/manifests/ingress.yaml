@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: argocd-server-ingress
-  namespace: env-test # Ensure this matches your Argo CD namespace
+  namespace: asd # Ensure this matches your Argo CD namespace
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:

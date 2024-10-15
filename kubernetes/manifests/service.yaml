@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: env-test
-  namespace: env-test # Specify the namespace here
+  namespace: asd # Specify the namespace here
 spec:
   type: ClusterIP # Change to LoadBalancer if you need external access
   ports:

@@ -15,10 +15,11 @@ spec:
       labels:
         app: env-test
     spec:
-      imagePullSecrets:
-        - name: dockerhub-secret
       containers:
         - name: wordpress
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           ports:
             - containerPort: {{ .Values.containerPort }}
+          envFrom:
+            - configMapRef:
+                name: {{ .Release.Name }}-config

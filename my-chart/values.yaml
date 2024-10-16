@@ -1,0 +1,17 @@
+# values.yaml
+namespace: promptify2
+replicaCount: 3
+
+image:
+  repository: wordpress
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+containerPort: 80
+
+ingress:
+  host: "apache.df.com" # Replace with your desired hostname

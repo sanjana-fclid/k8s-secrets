@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-env-test
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: env-test
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: env-test
+  template:
+    metadata:
+      labels:
+        app: env-test
+    spec:
+      imagePullSecrets:
+        - name: dockerhub-secret
+      containers:
+        - name: wordpress
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          ports:
+            - containerPort: {{ .Values.containerPort }}
